@@ -1,0 +1,6 @@
+C:\Users\npofa\source\repos\ChatSolution\ChatClient\bin\Debug\ChatClient.exe.config
+C:\Users\npofa\source\repos\ChatSolution\ChatClient\bin\Debug\ChatClient.exe
+C:\Users\npofa\source\repos\ChatSolution\ChatClient\bin\Debug\ChatClient.pdb
+C:\Users\npofa\source\repos\ChatSolution\ChatClient\obj\Debug\ChatClient.csproj.CoreCompileInputs.cache
+C:\Users\npofa\source\repos\ChatSolution\ChatClient\obj\Debug\ChatClient.exe
+C:\Users\npofa\source\repos\ChatSolution\ChatClient\obj\Debug\ChatClient.pdb
