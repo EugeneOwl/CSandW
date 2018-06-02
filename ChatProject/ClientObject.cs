@@ -10,7 +10,7 @@ namespace ChatProject
         protected internal NetworkStream Stream { get; private set; }
         string userName;
         TcpClient client;
-        ServerObject server; // объект сервера
+        ServerObject server;
 
         public ClientObject(TcpClient tcpClient, ServerObject serverObject)
         {
@@ -25,15 +25,12 @@ namespace ChatProject
             try
             {
                 Stream = client.GetStream();
-                // получаем имя пользователя
                 string message = GetMessage();
                 userName = message;
 
-                message = userName + " вошел в чат";
-                // посылаем сообщение о входе в чат всем подключенным пользователям
+                message = userName + " has just joined.";
                 server.BroadcastMessage(message, this.Id);
                 Console.WriteLine(message);
-                // в бесконечном цикле получаем сообщения от клиента
                 while (true)
                 {
                     try
@@ -45,7 +42,7 @@ namespace ChatProject
                     }
                     catch
                     {
-                        message = String.Format("{0}: покинул чат", userName);
+                        message = String.Format("{0}: has just leaved.", userName);
                         Console.WriteLine(message);
                         server.BroadcastMessage(message, this.Id);
                         break;
@@ -58,16 +55,14 @@ namespace ChatProject
             }
             finally
             {
-                // в случае выхода из цикла закрываем ресурсы
                 server.RemoveConnection(this.Id);
                 Close();
             }
         }
-
-        // чтение входящего сообщения и преобразование в строку
+        
         private string GetMessage()
         {
-            byte[] data = new byte[64]; // буфер для получаемых данных
+            byte[] data = new byte[64];
             StringBuilder builder = new StringBuilder();
             int bytes = 0;
             do
