@@ -5,3 +5,6 @@ C:\Users\npofa\source\repos\ChatSolution\ChatProject\obj\Debug\ChatProject.cspro
 C:\Users\npofa\source\repos\ChatSolution\ChatProject\obj\Debug\ChatProject.csproj.CoreCompileInputs.cache
 C:\Users\npofa\source\repos\ChatSolution\ChatProject\obj\Debug\ChatProject.exe
 C:\Users\npofa\source\repos\ChatSolution\ChatProject\obj\Debug\ChatProject.pdb
+C:\Users\npofa\source\repos\ChatSolution\ChatProject\bin\Debug\Crypting.dll
+C:\Users\npofa\source\repos\ChatSolution\ChatProject\bin\Debug\Crypting.pdb
+C:\Users\npofa\source\repos\ChatSolution\ChatProject\obj\Debug\ChatProject.csproj.CopyComplete

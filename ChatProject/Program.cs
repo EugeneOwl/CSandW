@@ -5,13 +5,13 @@ namespace ChatProject
 {
     class Program
     {
-        static ServerObject server;
+        static ServerModel server;
         static Thread listenThread; 
         static void Main(string[] args)
         {
             try
             {
-                server = new ServerObject();
+                server = new ServerModel();
                 listenThread = new Thread(new ThreadStart(server.Listen));
                 listenThread.Start();
             }

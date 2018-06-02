@@ -7,7 +7,7 @@ namespace ChatClient
 {
     class Program
     {
-        static string userName;
+        static string username;
         private const string host = "127.0.0.1";
         private const int port = 8888;
         static TcpClient client;
@@ -16,20 +16,20 @@ namespace ChatClient
         static void Main(string[] args)
         {
             Console.Write("Log in: ");
-            userName = Console.ReadLine();
+            username = Console.ReadLine();
             client = new TcpClient();
             try
             {
                 client.Connect(host, port);
                 stream = client.GetStream();
 
-                string message = userName;
+                string message = username;
                 byte[] data = Encoding.Unicode.GetBytes(message);
                 stream.Write(data, 0, data.Length);
 
                 Thread receiveThread = new Thread(new ThreadStart(ReceiveMessage));
                 receiveThread.Start();
-                Console.WriteLine("Welcome, {0}", userName);
+                Console.WriteLine("Welcome, {0}", username);
                 SendMessage();
             }
             catch (Exception ex)

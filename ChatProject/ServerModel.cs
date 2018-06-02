@@ -5,21 +5,24 @@ using System.Net.Sockets;
 using System.Net;
 using System.Text;
 using System.Threading;
+using Crypting;
 
 namespace ChatProject
 {
-    public class ServerObject
+    public class ServerModel
     {
+        private CrypterRSA crypterRSA = new CrypterRSA();
         static TcpListener tcpListener;
-        List<ClientObject> clients = new List<ClientObject>();
+        List<ClientModel> clients = new List<ClientModel>();
 
-        protected internal void AddConnection(ClientObject clientObject)
+        protected internal void AddConnection(ClientModel clientObject)
         {
             clients.Add(clientObject);
         }
+
         protected internal void RemoveConnection(string id)
         {
-            ClientObject client = clients.FirstOrDefault(c => c.Id == id);
+            ClientModel client = clients.FirstOrDefault(c => c.Id == id);
 
             if (client != null)
                 clients.Remove(client);
@@ -37,7 +40,7 @@ namespace ChatProject
                 {
                     TcpClient tcpClient = tcpListener.AcceptTcpClient();
 
-                    ClientObject clientObject = new ClientObject(tcpClient, this);
+                    ClientModel clientObject = new ClientModel(tcpClient, this);
                     Thread clientThread = new Thread(new ThreadStart(clientObject.Process));
                     clientThread.Start();
                 }
@@ -49,9 +52,10 @@ namespace ChatProject
             }
         }
         
-        protected internal void BroadcastMessage(string message, string id)
+        protected internal void DistributeMessage(string message, string id)
         {
-            byte[] data = Encoding.Unicode.GetBytes(message);
+            string encryptedMessage = message.Trim().Length != 3 ? crypterRSA.Encrypt(message) : message;
+            byte[] data = Encoding.Unicode.GetBytes(encryptedMessage);
             for (int i = 0; i < clients.Count; i++)
             {
                 if (clients[i].Id != id)
