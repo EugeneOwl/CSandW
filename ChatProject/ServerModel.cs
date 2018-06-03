@@ -54,8 +54,8 @@ namespace ChatProject
         
         protected internal void DistributeMessage(string message, string id)
         {
-            string encryptedMessage = message.Trim().Length != 3 ? crypterRSA.Encrypt(message) : message;
-            byte[] data = Encoding.Unicode.GetBytes(encryptedMessage);
+            string encryptedMessage = crypterRSA.Encrypt(message);
+            byte[] data = Encoding.UTF8.GetBytes(encryptedMessage);
             for (int i = 0; i < clients.Count; i++)
             {
                 if (clients[i].Id != id)

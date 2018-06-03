@@ -2,11 +2,13 @@
 using System.Threading;
 using System.Net.Sockets;
 using System.Text;
+using Crypting;
 
 namespace ChatClient
 {
     class Program
     {
+        private static CrypterRSA crypterRSA = new CrypterRSA();
         static string username;
         private const string host = "127.0.0.1";
         private const int port = 8888;
@@ -24,7 +26,7 @@ namespace ChatClient
                 stream = client.GetStream();
 
                 string message = username;
-                byte[] data = Encoding.Unicode.GetBytes(message);
+                byte[] data = Encoding.UTF8.GetBytes(message);
                 stream.Write(data, 0, data.Length);
 
                 Thread receiveThread = new Thread(new ThreadStart(ReceiveMessage));
@@ -49,7 +51,7 @@ namespace ChatClient
             while (true)
             {
                 string message = Console.ReadLine();
-                byte[] data = Encoding.Unicode.GetBytes(message);
+                byte[] data = Encoding.UTF8.GetBytes(message);
                 stream.Write(data, 0, data.Length);
             }
         }
@@ -66,11 +68,11 @@ namespace ChatClient
                     do
                     {
                         bytes = stream.Read(data, 0, data.Length);
-                        builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
+                        builder.Append(Encoding.UTF8.GetString(data, 0, bytes));
                     }
                     while (stream.DataAvailable);
 
-                    string message = builder.ToString();
+                    string message = crypterRSA.Decrypt(builder.ToString());
                     Console.WriteLine(message);
                 }
                 catch

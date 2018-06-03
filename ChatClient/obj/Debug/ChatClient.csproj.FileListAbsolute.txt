@@ -4,3 +4,7 @@ C:\Users\npofa\source\repos\ChatSolution\ChatClient\bin\Debug\ChatClient.pdb
 C:\Users\npofa\source\repos\ChatSolution\ChatClient\obj\Debug\ChatClient.csproj.CoreCompileInputs.cache
 C:\Users\npofa\source\repos\ChatSolution\ChatClient\obj\Debug\ChatClient.exe
 C:\Users\npofa\source\repos\ChatSolution\ChatClient\obj\Debug\ChatClient.pdb
+C:\Users\npofa\source\repos\ChatSolution\ChatClient\bin\Debug\Crypting.dll
+C:\Users\npofa\source\repos\ChatSolution\ChatClient\bin\Debug\Crypting.pdb
+C:\Users\npofa\source\repos\ChatSolution\ChatClient\obj\Debug\ChatClient.csprojResolveAssemblyReference.cache
+C:\Users\npofa\source\repos\ChatSolution\ChatClient\obj\Debug\ChatClient.csproj.CopyComplete

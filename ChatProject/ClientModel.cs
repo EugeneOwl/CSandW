@@ -33,20 +33,17 @@ namespace ChatProject
 
                 message = userName + " has just joined.";
                 server.DistributeMessage(message, this.Id);
-                Console.WriteLine(message);
                 while (true)
                 {
                     try
                     {
                         message = GetMessage();
                         message = String.Format("{0}: {1}", userName, message);
-                        Console.WriteLine(message);
                         server.DistributeMessage(message, this.Id);
                     }
                     catch
                     {
                         message = String.Format("{0}: has just leaved.", userName);
-                        Console.WriteLine(message);
                         server.DistributeMessage(message, this.Id);
                         break;
                     }
@@ -71,16 +68,13 @@ namespace ChatProject
             do
             {
                 bytes = Stream.Read(data, 0, data.Length);
-                builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
+                builder.Append(Encoding.UTF8.GetString(data, 0, bytes));
             }
             while (Stream.DataAvailable);
 
-            string encryptedMessage = builder.ToString();
-
-            return encryptedMessage.Trim().Length != 3 ? crypterRSA.Decrypt(encryptedMessage) : encryptedMessage;
+            return builder.ToString();
         }
-
-        // закрытие подключения
+        
         protected internal void Close()
         {
             if (Stream != null)
