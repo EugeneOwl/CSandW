@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Hashing;
 
 namespace UserProcessing
 {
@@ -12,6 +13,7 @@ namespace UserProcessing
     {
         private List<User> users = new List<User>();
         private const string UserPasswordFilePath = "C:\\Users\\npofa\\source\\repos\\ChatSolution\\UserProcessing\\users.json";
+        private PasswordHasher passwordHasher = new PasswordHasher();
 
         public UserProcessor()
         {
@@ -24,8 +26,9 @@ namespace UserProcessing
             bool doesUserExist = false;
             foreach (User user in users)
             {
-                if (user.login == login && user.password == password)
-                    doesUserExist = true;
+                if (user.login == login)
+                    if (passwordHasher.ValidatePassword(password, user.password))
+                        doesUserExist = true;
             }
             return doesUserExist;
         }
@@ -43,7 +46,7 @@ namespace UserProcessing
 
         public void RegistrateUser(string login, string password)
         {
-            User user = new User(login, password);
+            User user = new User(login, passwordHasher.HashPassword(password));
             users.Add(user);
             ClearFile();
             SerializeAllJSON();

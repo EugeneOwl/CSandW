@@ -23,10 +23,7 @@ namespace ChatProject
 
         private bool IsClientOnline(string username)
         {
-            foreach (string currentUsername in usernames)
-                if (currentUsername == username)
-                    return true;
-            return false;
+            return usernames.Contains(username);
         }
 
         public void RegistrateClient(string username, string id)
@@ -35,14 +32,16 @@ namespace ChatProject
                 usernames.Add(username);
             else
             {
-                RemoveConnection(id);
+                RemoveConnection(id, username);
                 throw new Exception("Client with username " + username.ToUpper() + " is already online.");
             }
         }
 
-        protected internal void RemoveConnection(string id)
+        protected internal void RemoveConnection(string id, string username = "")
         {
-            ClientModel client = clients.FirstOrDefault(c => c.Id == id);
+            if (usernames.Contains(username))
+                usernames.Remove(username);
+            ClientModel client = clients.FirstOrDefault(c => c.Id == id);
 
             if (client != null)
                 clients.Remove(client);

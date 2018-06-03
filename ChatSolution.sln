@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crypting", "Crypting\Crypti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserProcessing", "UserProcessing\UserProcessing.csproj", "{BFEEAC6D-369D-445D-9534-A7AD41B5DB2B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hashing", "Hashing\Hashing.csproj", "{29EE6878-B480-4D55-A271-7B843ECE123D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{BFEEAC6D-369D-445D-9534-A7AD41B5DB2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BFEEAC6D-369D-445D-9534-A7AD41B5DB2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BFEEAC6D-369D-445D-9534-A7AD41B5DB2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29EE6878-B480-4D55-A271-7B843ECE123D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29EE6878-B480-4D55-A271-7B843ECE123D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29EE6878-B480-4D55-A271-7B843ECE123D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29EE6878-B480-4D55-A271-7B843ECE123D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

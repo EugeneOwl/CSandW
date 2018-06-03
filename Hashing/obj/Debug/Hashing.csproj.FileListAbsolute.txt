@@ -1,0 +1,9 @@
+C:\Users\npofa\source\repos\ChatSolution\Hashing\bin\Debug\Hashing.dll
+C:\Users\npofa\source\repos\ChatSolution\Hashing\bin\Debug\Hashing.pdb
+C:\Users\npofa\source\repos\ChatSolution\Hashing\bin\Debug\BCrypt.Net-Next.dll
+C:\Users\npofa\source\repos\ChatSolution\Hashing\bin\Debug\BCrypt.Net-Next.xml
+C:\Users\npofa\source\repos\ChatSolution\Hashing\obj\Debug\Hashing.csprojResolveAssemblyReference.cache
+C:\Users\npofa\source\repos\ChatSolution\Hashing\obj\Debug\Hashing.csproj.CoreCompileInputs.cache
+C:\Users\npofa\source\repos\ChatSolution\Hashing\obj\Debug\Hashing.csproj.CopyComplete
+C:\Users\npofa\source\repos\ChatSolution\Hashing\obj\Debug\Hashing.dll
+C:\Users\npofa\source\repos\ChatSolution\Hashing\obj\Debug\Hashing.pdb

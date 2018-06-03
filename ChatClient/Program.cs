@@ -95,7 +95,7 @@ namespace ChatClient
                 {
                     Console.WriteLine("Goodbye.");
                     Thread.Sleep(300);
-                    return;
+                    Environment.Exit(0);
                 }
                 byte[] data = Encoding.UTF8.GetBytes(message);
                 stream.Write(data, 0, data.Length);
