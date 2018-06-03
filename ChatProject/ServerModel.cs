@@ -14,10 +14,30 @@ namespace ChatProject
         private CrypterRSA crypterRSA = new CrypterRSA();
         static TcpListener tcpListener;
         List<ClientModel> clients = new List<ClientModel>();
+        List<string> usernames = new List<string>();
 
-        protected internal void AddConnection(ClientModel clientObject)
+        protected internal void AddConnection(ClientModel clientModel)
         {
-            clients.Add(clientObject);
+            clients.Add(clientModel);
+        }
+
+        private bool IsClientOnline(string username)
+        {
+            foreach (string currentUsername in usernames)
+                if (currentUsername == username)
+                    return true;
+            return false;
+        }
+
+        public void RegistrateClient(string username, string id)
+        {
+            if (!IsClientOnline(username))
+                usernames.Add(username);
+            else
+            {
+                RemoveConnection(id);
+                throw new Exception("Client with username " + username.ToUpper() + " is already online.");
+            }
         }
 
         protected internal void RemoveConnection(string id)
@@ -34,7 +54,7 @@ namespace ChatProject
             {
                 tcpListener = new TcpListener(IPAddress.Any, 8888);
                 tcpListener.Start();
-                Console.WriteLine("Server is running. Wait for connections...");
+                Console.WriteLine("Server is running.");
 
                 while (true)
                 {

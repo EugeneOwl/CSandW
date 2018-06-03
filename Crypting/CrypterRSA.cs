@@ -37,11 +37,11 @@ namespace Crypting
             RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
             rsa.FromXmlString(key);
             if (commentMode)
-                Console.WriteLine("Going to decrypt: |" + text + "|");
+                Console.WriteLine("Going to decrypt: \"" + text + "\"");
             decrContent = rsa.Decrypt(Convert.FromBase64String(text), true);
 
             if (commentMode)
-                Console.WriteLine("Decrypted: |" + _toString(decrContent) + "|");
+                Console.WriteLine("Decrypted: \"" + _toString(decrContent) + "\"");
             return _toString(decrContent);
         }
 
@@ -64,11 +64,11 @@ namespace Crypting
             RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
             rsa.FromXmlString(key);
             if (commentMode)
-                Console.WriteLine("Going to encrypt: |" + text + "|");
+                Console.WriteLine("Going to encrypt: \"" + text + "\"");
             encContent = rsa.Encrypt(_toByte(text), true);
 
             if (commentMode)
-                Console.WriteLine("Encrypted: |" + Convert.ToBase64String(encContent) + "|");
+                Console.WriteLine("Encrypted: \"" + Convert.ToBase64String(encContent) + "\"");
             return Convert.ToBase64String(encContent);
         }
     }

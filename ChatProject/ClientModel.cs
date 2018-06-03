@@ -10,7 +10,7 @@ namespace ChatProject
         private CrypterRSA crypterRSA = new CrypterRSA();
         protected internal string Id { get; private set; }
         protected internal NetworkStream Stream { get; private set; }
-        string userName;
+        public string username;
         TcpClient client;
         ServerModel server;
 
@@ -28,21 +28,21 @@ namespace ChatProject
             {
                 Stream = client.GetStream();
                 string message = GetMessage();
-                userName = message;
-
-                message = userName + " has just joined.";
+                username = message;
+                server.RegistrateClient(message, this.Id);
+                message = username.ToUpper() + " has just joined.";
                 server.DistributeMessage(message, this.Id);
                 while (true)
                 {
                     try
                     {
                         message = GetMessage();
-                        message = String.Format("{0}: {1}", userName, message);
+                        message = String.Format("{0}: {1}", username.ToUpper(), message);
                         server.DistributeMessage(message, this.Id);
                     }
                     catch
                     {
-                        message = String.Format("{0}: has just leaved.", userName);
+                        message = String.Format("{0}: has just leaved.", username.ToUpper());
                         server.DistributeMessage(message, this.Id);
                         break;
                     }

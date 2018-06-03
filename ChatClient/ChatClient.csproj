@@ -57,6 +57,10 @@
       <Project>{395a8eed-5144-4217-9e07-c091a47d1dc8}</Project>
       <Name>Crypting</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UserProcessing\UserProcessing.csproj">
+      <Project>{bfeeac6d-369d-445d-9534-a7ad41b5db2b}</Project>
+      <Name>UserProcessing</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

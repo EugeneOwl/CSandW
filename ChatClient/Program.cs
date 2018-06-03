@@ -9,8 +9,10 @@ namespace ChatClient
 {
     class Program
     {
+        private static UserProcessor userProcessor = new UserProcessor();
         private static CrypterRSA crypterRSA = new CrypterRSA();
-        static string username;
+        public static string username;
+        private static string password;
         private const string host = "127.0.0.1";
         private const int port = 8888;
         static TcpClient client;
@@ -18,8 +20,12 @@ namespace ChatClient
 
         static void Main(string[] args)
         {
-            Console.Write("Log in: ");
-            username = Console.ReadLine();
+            Console.WriteLine("(Put \"logup\" for registration.)");
+            string toRegistration = Console.ReadLine();
+            if (toRegistration == "logup")
+                Registration();
+            Console.WriteLine("Log in:");
+            Login();
             client = new TcpClient();
             try
             {
@@ -32,7 +38,7 @@ namespace ChatClient
 
                 Thread receiveThread = new Thread(new ThreadStart(ReceiveMessage));
                 receiveThread.Start();
-                Console.WriteLine("Welcome, {0}", username);
+                Console.WriteLine("Welcome, {0}", username.ToUpper());
                 SendMessage();
             }
             catch (Exception ex)
@@ -45,13 +51,52 @@ namespace ChatClient
             }
         }
 
+        static private void Login()
+        {
+            do
+            {
+                Console.Write("Username: ");
+                username = Console.ReadLine();
+                Console.Write("Password: ");
+                password = Console.ReadLine();
+                if (!userProcessor.IsUserValid(username, password))
+                    Console.WriteLine("Invalid data. Try again.");
+                else
+                    return;
+            }
+            while (true);
+        }
+
+        static private void Registration()
+        {
+            do
+            {
+                Console.Write("Username: ");
+                username = Console.ReadLine();
+                Console.Write("Password: ");
+                password = Console.ReadLine();
+                if (!userProcessor.IsUsernameFree(username))
+                    Console.WriteLine("Username already taken.");
+                else
+                {
+                    userProcessor.RegistrateUser(username, password);
+                    return;
+                }
+            }
+            while (true);
+        }
+
         static void SendMessage()
         {
-            Console.WriteLine("Enter message: ");
-
             while (true)
             {
                 string message = Console.ReadLine();
+                if (message == "quit")
+                {
+                    Console.WriteLine("Goodbye.");
+                    Thread.Sleep(300);
+                    return;
+                }
                 byte[] data = Encoding.UTF8.GetBytes(message);
                 stream.Write(data, 0, data.Length);
             }
@@ -85,7 +130,7 @@ namespace ChatClient
             }
         }
 
-        static void Disconnect()
+        public static void Disconnect()
         {
             if (stream != null)
                 stream.Close();
