@@ -49,6 +49,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ChatProject\ChatProject.csproj">
+      <Project>{e07032ee-8d22-42ab-aca9-e1bdecfbc2f0}</Project>
+      <Name>ChatProject</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Crypting\Crypting.csproj">
       <Project>{395a8eed-5144-4217-9e07-c091a47d1dc8}</Project>
       <Name>Crypting</Name>

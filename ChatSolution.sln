@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatClient", "ChatClient\Ch
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crypting", "Crypting\Crypting.csproj", "{395A8EED-5144-4217-9E07-C091A47D1DC8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserProcessing", "UserProcessing\UserProcessing.csproj", "{BFEEAC6D-369D-445D-9534-A7AD41B5DB2B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{395A8EED-5144-4217-9E07-C091A47D1DC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{395A8EED-5144-4217-9E07-C091A47D1DC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{395A8EED-5144-4217-9E07-C091A47D1DC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFEEAC6D-369D-445D-9534-A7AD41B5DB2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFEEAC6D-369D-445D-9534-A7AD41B5DB2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFEEAC6D-369D-445D-9534-A7AD41B5DB2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFEEAC6D-369D-445D-9534-A7AD41B5DB2B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

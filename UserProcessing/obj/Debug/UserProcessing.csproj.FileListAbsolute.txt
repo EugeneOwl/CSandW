@@ -1,0 +1,6 @@
+C:\Users\npofa\source\repos\ChatSolution\UserProcessing\bin\Debug\UserProcessing.dll
+C:\Users\npofa\source\repos\ChatSolution\UserProcessing\bin\Debug\UserProcessing.pdb
+C:\Users\npofa\source\repos\ChatSolution\UserProcessing\obj\Debug\UserProcessing.csprojResolveAssemblyReference.cache
+C:\Users\npofa\source\repos\ChatSolution\UserProcessing\obj\Debug\UserProcessing.csproj.CoreCompileInputs.cache
+C:\Users\npofa\source\repos\ChatSolution\UserProcessing\obj\Debug\UserProcessing.dll
+C:\Users\npofa\source\repos\ChatSolution\UserProcessing\obj\Debug\UserProcessing.pdb

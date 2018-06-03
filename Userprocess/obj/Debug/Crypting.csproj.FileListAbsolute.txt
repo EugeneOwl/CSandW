@@ -1,0 +1,6 @@
+C:\Users\npofa\source\repos\ChatSolution\Crypting\bin\Debug\Crypting.dll
+C:\Users\npofa\source\repos\ChatSolution\Crypting\bin\Debug\Crypting.pdb
+C:\Users\npofa\source\repos\ChatSolution\Crypting\obj\Debug\Crypting.csprojResolveAssemblyReference.cache
+C:\Users\npofa\source\repos\ChatSolution\Crypting\obj\Debug\Crypting.csproj.CoreCompileInputs.cache
+C:\Users\npofa\source\repos\ChatSolution\Crypting\obj\Debug\Crypting.dll
+C:\Users\npofa\source\repos\ChatSolution\Crypting\obj\Debug\Crypting.pdb

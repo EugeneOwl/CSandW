@@ -3,6 +3,7 @@ using System.Threading;
 using System.Net.Sockets;
 using System.Text;
 using Crypting;
+using UserProcessing;
 
 namespace ChatClient
 {

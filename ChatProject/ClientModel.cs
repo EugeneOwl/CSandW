@@ -13,7 +13,6 @@ namespace ChatProject
         string userName;
         TcpClient client;
         ServerModel server;
-        string key;
 
         public ClientModel(TcpClient tcpClient, ServerModel serverObject)
         {
